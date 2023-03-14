@@ -24,22 +24,7 @@ PDF s textem není elektronická dokumentace. Vyhledávání, prolinkování.
 Dokumentace k bakalářské práci.
 [Dokumentace RISC-V](./README.md)
 
-### Jaké jsou use case:
-- Návod pro oponenta
-Návod pro oponenta jak zprovoznit a otestovat práci. 
-Jak oživit desku, nahrát program, načíst data....
-- Programátor v ASEMBLY?
-Musel bych se docela dost naučit programovat v ASEMBLY.
-- Programátor překladače? 
-Netuším jak kvalitně někoho navést ke psaní překladače.
-- Návrh desky?
-Žije to na FPGA, nemá vlastní pouzdro. 
 
-### Návod pro oponenta
-Uživatel je velmi technicky zdatný, má optimální pracovní podmínky, dokumentaci si čte na počítači. 
-
-Jak používat Vivado?
-Jak spustit testy?
 
 ## Výpisky
 

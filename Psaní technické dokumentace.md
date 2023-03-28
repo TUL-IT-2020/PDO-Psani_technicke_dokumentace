@@ -17,6 +17,7 @@ Napsat analýzu use case. Vybrat si pro koho dělám analýzu. Pro váš produkt
 2. [[cv02|cvičení]]
 3.  [x] Návrh struktury semestrální práce
 4. [[cv04|cvičení]]
+5. [[cv05|cvičení]]
 
 ## Semestrální projekt
 Dokumentace k bakalářské práci.

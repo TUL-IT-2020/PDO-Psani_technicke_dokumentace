@@ -19,24 +19,34 @@ Netuším jak kvalitně někoho navést ke psaní překladače.
 Žije to na FPGA, nemá vlastní pouzdro. 
 
 ## Návod pro oponenta
+### Specifikace cílové skupiny
 Předpoklady na čtenáře:
 - Uživatel je velmi technicky zdatný
 - Má optimální pracovní podmínky
 - Dokumentaci si čte na počítači
 - Ovládá jazyk VHDL
 
+### Slovníček
+| Anglicismus | Český ekvivalent |
+| --- | --- |
+| kompilace | překlad |
+| kompilátor | překladač |
+
+### Struktura práce
 Kroky potřebné k otestování praktické části:
-- Jak nainstalovat IDE Vivado.
+1. Jak nainstalovat IDE Vivado.
 	- Jak používat Vivado?
 	- Jak spustit testy?
-- Kompilace zdrojového kódu
+2. Přklad zdrojového kódu
 	- Seznámení se s zdrojovým kódem (C/Assembler)
-	- Stažení kompilátoru (RISC-V32I)
+	- Stažení překladače (RISC-V32I)
 	- kompilace
-- Nahrání na desku
+3. Nahrání na desku
 	- Komunikace s vývojovou deskou
 	- Spuštění a ovládání demo programu
 
+
+# Obsahová část
 ## Testování
 ### Spuštění simulace
 
@@ -121,3 +131,4 @@ export PATH="/opt/riscv/bin:$PATH"
 Zdroje:
 https://stackoverflow.com/questions/74231514/how-to-install-riscv32-unknown-elf-gcc-on-debian-based-linuxes
 https://web.eecs.utk.edu/~smarz1/courses/ece356/notes/assembly/
+

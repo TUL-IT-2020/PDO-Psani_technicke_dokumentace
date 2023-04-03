@@ -10,23 +10,22 @@ Prezentace mé dokumetnace.
 ## Cvičení
 1. Poznej svojí cílovou skupinu
 -  [x] Git repositář pro dokumentaci. 
--  [ ] Specifikace cílové skupiny. 
-Napsat analýzu use case. Vybrat si pro koho dělám analýzu. 
+-  [x] Specifikace cílové skupiny. 
+Napsat analýzu use case. Vybrat si pro koho dělám analýzu. Pro váš produkt vyberte, jaký typ dokumentace chcete vytvářet.
 -  [x] Elerning přidat odkaz na repozitář. 
 
 2. [[cv02|cvičení]]
-
-Pro váš produkt vyberte, jaký typ dokumentace chcete vytvářet.
-
-PDF s textem není elektronická dokumentace. Vyhledávání, prolinkování.
+3.  [x] Návrh struktury semestrální práce
+4. [[cv04|cvičení]]
+5. [[cv05|cvičení]]
 
 ## Semestrální projekt
 Dokumentace k bakalářské práci.
 [Dokumentace RISC-V](./README.md)
 
-
-
 ## Výpisky
+
+PDF s textem není elektronická dokumentace. Vyhledávání, prolinkování.
 
 Dokumentarista dostane use case a pro každý z nich vytvoří vlastní.
 
@@ -58,5 +57,9 @@ Datasheet
 
 Github action která hlídá commity, aby funkce měly dokumentaci.
 
-RTFM - Read the fucking manual
+RTFM - Read the fucking manual.
+
 TL;DR - Too long; didn't read. 
+
+Signle source publishing
+

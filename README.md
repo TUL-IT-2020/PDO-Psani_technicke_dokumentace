@@ -34,23 +34,56 @@ Předpoklady na čtenáře:
 
 ### Struktura práce
 Kroky potřebné k otestování praktické části:
-1. Jak nainstalovat IDE Vivado.
+- Jak nainstalovat IDE Vivado.
 	- Jak používat Vivado?
 	- Jak spustit testy?
-2. Přklad zdrojového kódu
+- Přklad zdrojového kódu
 	- Seznámení se s zdrojovým kódem (C/Assembler)
 	- Stažení překladače (RISC-V32I)
 	- kompilace
-3. Nahrání na desku
+- Nahrání na desku
 	- Komunikace s vývojovou deskou
 	- Spuštění a ovládání demo programu
 
+### Struktura repositáře
+```Bash
+$ tree -d -L 4
+├── assets
+├── DOC
+│   └── official
+├── programs
+└── RISC-V
+    ├── RISC-V.gen
+    │   └── sources_1
+    │       └── ip
+    ├── RISC-V.ip_user_files
+    │   ├── ip
+    │   ├── ipstatic
+    │   ├── mem_init_files
+    │   └── sim_scripts
+    ├── RISC-V.runs
+    │   └── synth_1
+    ├── RISC-V.sim
+    │   └── sim_1
+    │       └── synth
+    └── RISC-V.srcs
+        ├── sim_1
+        │   └── new
+        └── sources_1
+            ├── ip
+            └── new
+```
+Obsahuje adresářů:
+- `RISC-V/`  - projekt IDE Vivado
+- `programs/` - programy pro otestování procesoru a přiložené scripty
+- `RISC-V.srcs/sources_1/new` - *.VHD* zdrojové soubory 
+- `RISC-V.srcs/sim_1/new` - testovací soubory pro simulace
 
 # Obsahová část
 ## Testování
 ### Spuštění simulace
 
-### Nahrání vlastního programu
+### Nahrání jiného programu
 Pro změnu programu v simulaci *tb_run_program.vhd* je potřeba změnit .coe soubor a rekonfigurovat *instruction_memory*.
 
 #### 1. hex dump
@@ -76,19 +109,21 @@ TODO:
 
 Nyní již můžete spustit simulaci s novým programem. 
 
-## Otestování vlastního programu
+## Vytvoření a otestování vlastního programu
 Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tomu lze využít některého z online simulátorů RISC-V.
 
-## Překlad zdrojových kódů
-### C -> asm
-
-#### Překlad online
+### Překlad zdrojových kódů online
 Pro jednodušší programy je vhodné použít překlad online, pro který není potřeba na vlastní počítač nic instalovat. 
 
+#### C -> asm
 Překlad z C na asm RISC-V [compiler explorer](https://godbolt.org). Umožnuje překlad překlad z mnohých jazyků do asm pro různé platformy. Nás zajímá jazyk **C** na **RISC-V rv32gc clang (trunk)**. Instrukční sada rv32i je podmnožinou rv32gc a je tedy nutné mít na mysli, že ne všechny instrukce (například: násobení, FP operace) půjde po překladu spustit. 
 V nastavení výstupu je vhodné zaškrtnout položky *Demangle identifiers* a odfiltrovat vše kromě *Comments*. 
 
-#### Překlad na vašem stroji
+#### asm -> hexa
+Překladač z asm na hexa RISC-V překladač: [riscvasm.lucasteske](https://riscvasm.lucasteske.dev/#)
+Na ovládání velmi jednoduchý překladač. Po vložení asm kódu stačí zmáčknout "BUILD" a kód se přeloží do hexa souboru. Poskytuje i disasembly výstup pro zpětný přepis, který obsahuje již i čísla adres v paměti vizualizující jednotlivé skoky na návěští.
+
+### Překlad zdrojových kódů na vašem stroji
 Lze použít různých překladačů, například: Clang/LLVM nebo GCC.
 - 64 bitů
 
@@ -127,8 +162,7 @@ make linux
 export PATH="/opt/riscv/bin:$PATH"
 ```
 
-
-#### Disassembly
+### Disassembly
 Překlad programu do binárního souboru:
 ```bash
 riscv32-unknown-elf-gcc -c -o code.o sum.c
@@ -142,11 +176,6 @@ Přepis binárního kódu do assembly:
 riscv32-unknown-elf-objdump -d code.o
 ```
 
-
-### asm -> hexa
-#### Překlad online
-Překladač z asm na hexa RISC-V překladač: [riscvasm.lucasteske](https://riscvasm.lucasteske.dev/#)
-Na ovládání velmi jednoduchý překladač. Po vložení asm kódu stačí zmáčknout "BUILD" a kód se přeloží do hexa souboru. Poskytuje i disasembly výstup pro zpětný přepis, který obsahuje již i čísla adres v paměti vizualizující jednotlivé skoky na návěští.
 
 
 Zdroje:

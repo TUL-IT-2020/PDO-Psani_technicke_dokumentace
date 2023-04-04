@@ -77,7 +77,11 @@ TODO:
 Nyní již můžete spustit simulaci s novým programem. 
 
 ## Otestování vlastního programu
-Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tomu lze využít některého z online simulátorů RISC-V.
+Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tomu lze využít některého ze simulátorů RISC-V.
+[riscfive: seznam simulátorů](https://www.riscfive.com/risc-v-simulators/)
+[Online: venus.kvakil](https://venus.kvakil.me)
+[Online: ascslab](https://ascslab.org/research/briscv/simulator/simulator.html)
+[VS Code rozšíření: venus](https://marketplace.visualstudio.com/items?itemName=hm.riscv-venus)
 
 ## Překlad zdrojových kódů
 
@@ -104,10 +108,12 @@ Zkrácený postup pro operační systémy Linux:
 ```bash
 git clone https://github.com/riscv/riscv-gnu-toolchain
 ```
+
 2. Instalace potřebných balíčků:
 ```bash
 sudo apt-get install autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build
 ```
+
 3. Konfigurace před sestavením:
 ```bash
 cd riscv-gnu-toolchain/
@@ -116,19 +122,39 @@ cd riscv-gnu-toolchain/
 - `/opt/riscv` je cesta k adresáři kam se nástroj pro překlad sestaví
 - `rv32i` je naše architektura
 - `ilp32` je konfigurace pro architekturu bez jednotky s plavoucí řádovou čárkou
-(ABI - Application Binary Interface)
 
 4. Sestavení nástroje:
 ```bash
 make linux
 ```
+
 5. Přidání nástroje do cesty spustitelných nástrojů:
 ```bash
 export PATH="/opt/riscv/bin:$PATH"
 ```
 
+6. Kompilace zdrojového kódu programu:
+- Překlad v jednom kroku:
+```bash
+riscv32-unknown-elf-gcc fibonaci_rekurze.c -o fib.bin
+```
+- Překlad a slinkování postupně:
+```bash
+riscv32-unknown-elf-gcc -c -o fib.o fibonaci_rekurze.c
+riscv32-unknown-elf-gcc -g -o fib.bin fib.o
+```
 
-Zdroje:
+### HexDump
+Pro otevření *.bin* souborů lze použít programů typu hexdump.
+
+- Windows [free hex editor](https://www.hhdsoftware.com/free-hex-editor)
+- Linux [hexdump](https://manpages.ubuntu.com/manpages/bionic/en/man1/hexdump.1.html)
+
+## Zdroje:
 https://stackoverflow.com/questions/74231514/how-to-install-riscv32-unknown-elf-gcc-on-debian-based-linuxes
+https://stackoverflow.com/questions/31390127/how-can-i-compile-c-code-to-get-a-bare-metal-skeleton-of-a-minimal-risc-v-assemb
 https://web.eecs.utk.edu/~smarz1/courses/ece356/notes/assembly/
+
+
+
 

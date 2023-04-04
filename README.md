@@ -84,25 +84,9 @@ Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tom
 [VS Code rozšíření: venus](https://marketplace.visualstudio.com/items?itemName=hm.riscv-venus)
 
 ## Překlad zdrojových kódů
-### C -> asm
 
-#### Překlad online
-Pro jednodušší programy je vhodné použít překlad online, pro který není potřeba na vlastní počítač nic instalovat. 
-
-Překlad z C na asm RISC-V [compiler explorer](https://godbolt.org). Umožnuje překlad překlad z mnohých jazyků do asm pro různé platformy. Nás zajímá jazyk **C** na **RISC-V rv32gc clang (trunk)**. Instrukční sada rv32i je podmnožinou rv32gc a je tedy nutné mít na mysli, že ne všechny instrukce (například: násobení, FP operace) půjde po překladu spustit. 
-V nastavení výstupu je vhodné zaškrtnout položky *Demangle identifiers* a odfiltrovat vše kromě *Comments*. 
-
-#### Překlad na vašem stroji
-Lze použít různých překladačů, například: Clang/LLVM nebo GCC.
-- 64 bitů
-
-Kompilace zdrojových pro 64bitvůou architekturu mohou zajistit již sestavené nástroje od [sifive](https://github.com/sifive/freedom-tools/releases)
-
-- 32 bitů
-
-Naše architektura je však 32bitová a proto si musíme sestavit vlastní překladač. Podrobný postup je popsán na stránkách [repositáře](https://github.com/riscv-collab/riscv-gnu-toolchain). Překlad gcc pro křížový překlad.
-
-Zkrácený postup pro operační systémy Linux:
+### Sestavení překladače
+Podrobný postup je popsán na stránkách [repositáře](https://github.com/riscv-collab/riscv-gnu-toolchain). Zkrácený postup pro operační systémy Linux:
 
 1. Naklonování repositáře s nástroji:
 ```bash
@@ -133,6 +117,39 @@ make linux
 export PATH="/opt/riscv/bin:$PATH"
 ```
 
+6. Nyní je překladač připraven k použít a mělo by být možné jej spustit příkazem:
+```bash
+riscv32-unknown-elf-gcc <nazev_programu.c>
+```
+
+### C -> asm
+
+#### Překlad online
+Pro jednodušší programy je vhodné použít překlad online, pro který není potřeba na vlastní počítač nic instalovat. 
+
+Překlad z C na asm RISC-V [compiler explorer](https://godbolt.org). Umožnuje překlad překlad z mnohých jazyků do asm pro různé platformy. Nás zajímá jazyk **C** na **RISC-V rv32gc clang (trunk)**. Instrukční sada rv32i je podmnožinou rv32gc a je tedy nutné mít na mysli, že ne všechny instrukce (například: násobení, FP operace) půjde po překladu spustit. 
+V nastavení výstupu je vhodné zaškrtnout položky *Demangle identifiers* a odfiltrovat vše kromě *Comments*. 
+
+#### Překlad na vašem stroji
+Lze použít různých překladačů, například: Clang/LLVM nebo GCC.
+- 64 bitová architektura
+
+Kompilace zdrojových pro 64bitvůou architekturu mohou zajistit již sestavené nástroje od [sifive](https://github.com/sifive/freedom-tools/releases)
+
+- 32 bitů
+
+Naše architektura je však 32bitová a proto si musíme sestavit vlastní překladač. Překlad gcc pro křížový překlad [[6. semestr/PDO-Psani_technicke_dokumentace/README#Sestavení překladače|zde]].
+
+Kompilace zdrojového kódu programu:
+- Překlad v jednom kroku:
+```bash
+riscv32-unknown-elf-gcc fibonaci_rekurze.c -o fib.bin
+```
+- Překlad a slinkování postupně:
+```bash
+riscv32-unknown-elf-gcc -c -o fib.o fibonaci_rekurze.c
+riscv32-unknown-elf-gcc -g -o fib.bin fib.o
+```
 
 #### Disassembly
 Překlad programu do binárního souboru:
@@ -154,16 +171,9 @@ riscv32-unknown-elf-objdump -d code.o
 Překladač z asm na hexa RISC-V překladač: [riscvasm.lucasteske](https://riscvasm.lucasteske.dev/#)
 Na ovládání velmi jednoduchý překladač. Po vložení asm kódu stačí zmáčknout "BUILD" a kód se přeloží do hexa souboru. Poskytuje i disasembly výstup pro zpětný přepis, který obsahuje již i čísla adres v paměti vizualizující jednotlivé skoky na návěští.
 
-6. Kompilace zdrojového kódu programu:
-- Překlad v jednom kroku:
-```bash
-riscv32-unknown-elf-gcc fibonaci_rekurze.c -o fib.bin
-```
-- Překlad a slinkování postupně:
-```bash
-riscv32-unknown-elf-gcc -c -o fib.o fibonaci_rekurze.c
-riscv32-unknown-elf-gcc -g -o fib.bin fib.o
-```
+
+#### Překlad na vašem stroji
+TODO
 
 ### HexDump
 Pro otevření *.bin* souborů lze použít programů typu hexdump.
@@ -171,42 +181,6 @@ Pro otevření *.bin* souborů lze použít programů typu hexdump.
 - Windows [free hex editor](https://www.hhdsoftware.com/free-hex-editor)
 - Linux [hexdump](https://manpages.ubuntu.com/manpages/bionic/en/man1/hexdump.1.html)
 
-#### Disassembly
-Překlad programu do binárního souboru:
-```bash
-riscv32-unknown-elf-gcc -c -o code.o sum.c
-```
-- *sum.c* vzorový program k překladu.
-- `-o` nastavuje název výstupního souboru na *code.o*.
-- `-c` kód pouze přeloží
-
-Přepis binárního kódu do assembly:
-```bash
-riscv32-unknown-elf-objdump -d code.o
-```
-
-
-### asm -> hexa
-#### Překlad online
-Překladač z asm na hexa RISC-V překladač: [riscvasm.lucasteske](https://riscvasm.lucasteske.dev/#)
-Na ovládání velmi jednoduchý překladač. Po vložení asm kódu stačí zmáčknout "BUILD" a kód se přeloží do hexa souboru. Poskytuje i disasembly výstup pro zpětný přepis, který obsahuje již i čísla adres v paměti vizualizující jednotlivé skoky na návěští.
-
-6. Kompilace zdrojového kódu programu:
-- Překlad v jednom kroku:
-```bash
-riscv32-unknown-elf-gcc fibonaci_rekurze.c -o fib.bin
-```
-- Překlad a slinkování postupně:
-```bash
-riscv32-unknown-elf-gcc -c -o fib.o fibonaci_rekurze.c
-riscv32-unknown-elf-gcc -g -o fib.bin fib.o
-```
-
-### HexDump
-Pro otevření *.bin* souborů lze použít programů typu hexdump.
-
-- Windows [free hex editor](https://www.hhdsoftware.com/free-hex-editor)
-- Linux [hexdump](https://manpages.ubuntu.com/manpages/bionic/en/man1/hexdump.1.html)
 
 ## Zdroje:
 https://stackoverflow.com/questions/74231514/how-to-install-riscv32-unknown-elf-gcc-on-debian-based-linuxes

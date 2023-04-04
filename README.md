@@ -128,6 +128,22 @@ export PATH="/opt/riscv/bin:$PATH"
 ```
 
 
+## Disassembly
+Překlad programu do binárního souboru:
+```bash
+riscv32-unknown-elf-gcc -c -o code.o sum.c
+```
+- *sum.c* vzorový program k překladu.
+- `-o` nastavuje název výstupního souboru na *code.o*.
+- `-c` kód pouze přeloží
+
+Přepis binárního kódu do assembly:
+```bash
+riscv32-unknown-elf-objdump -d code.o
+```
+
+
+
 Zdroje:
 https://stackoverflow.com/questions/74231514/how-to-install-riscv32-unknown-elf-gcc-on-debian-based-linuxes
 https://web.eecs.utk.edu/~smarz1/courses/ece356/notes/assembly/

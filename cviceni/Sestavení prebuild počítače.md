@@ -1,0 +1,1 @@
+# Sestavení prebuild počítače

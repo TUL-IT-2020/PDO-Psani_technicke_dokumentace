@@ -32,9 +32,10 @@ Rozbalovací seznam s variantami stylů odrážek.
 ## Číslované odrážky
 
 1. Výběr odrážkového seznamu dle vaší preference stylu
-Najeďte myší na ikonu číslovaného seznamu a klikněte levým tlačítkem myši na malou šipku dolů a v rozbalovacím seznamu si vyberte požadovaný styl.
+Najeďte myší na ikonu číslovaného seznamu a klikněte levým tlačítkem myši na malou šipku dolů a v rozbalovacím seznamu si vyberte požadovaný styl. Po zvolení stylu se vám vloží první odrážky nového seznamu.
 
-2. 
+
+Vyzkoušejte si a za chvíli byte psát odrážkové seznamy jako mistr. 
 
 
 

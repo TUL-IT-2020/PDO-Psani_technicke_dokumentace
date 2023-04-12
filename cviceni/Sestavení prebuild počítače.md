@@ -13,8 +13,8 @@
 - Klávesnice je zapojena kabelem do USB konektoru základní desky
 ### Bezdrátová myš
 - Ze spodní strany myšy je nutné páčivým pohybem odstranit krytku baterie
-- Pod krytem je umístěn bezdrátový přijímač, který umístětě do USB konektoru počítače 
-- V obalu myšy naleznete 1,5V baterii která je potřeba vložit do místa pod krytkou
+- Pod krytem je umístěn bezdrátový přijímač. Ten zapojte do USB konektoru počítače 
+- V obalu myšy naleznete 1,5V baterii kterou je potřeba vložit do místa pod krytkou
 - Na baterii vidíte na koncích značku "+" a "-", vložte baterii na místo se shodujícími se znaky v místě po otevření krytu
 - Kryt vratťe na původní místo
 

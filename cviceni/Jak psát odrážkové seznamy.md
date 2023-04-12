@@ -1,7 +1,5 @@
 # Jak psát odrážkové seznamy
 
-TODO: vkládat obrázky relativní cestou
-
 V online aplikaci [Google dokumenty](https://docs.google.com/document)
 
 <img src=https://transkriptor.com/wp-content/uploads/2022/09/Google-Docs.png width="50%" height="50%">

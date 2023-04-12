@@ -9,11 +9,11 @@ V online aplikaci [Google dokumenty](https://docs.google.com/document)
 ## Než začnete
 <img src=https://play-lh.googleusercontent.com/emmbClh_hm0WpWZqJ0X59B8Pz1mKoB9HVLkYMktxhGE6_-30SdGoa-BmYW73RJ8MGZQ width="25%" height="25%">
 
-1. Otevřete webový prohlížeč (např Edge, Mozilla, Chrome, ...)
-2. Do vyhledávacího okna zdáme "Google dokumenty" nebo odkazem [zde](https://docs.google.com/document/u/0/)
-3. Otevřeme nový dokument ikonou "+" 
+1. Otevřete webový prohlížeč (např Edge, Mozilla, Chrome, ...).
+2. Do vyhledávacího okna zadejte "Google dokumenty", nebo klikněte na odkaz [zde](https://docs.google.com/document/u/0/).
+3. Na stránce Doogle dokmentů otevřete nový dokument ikonou "+", jako je naznačeno na obrázku níže.
 
-![[google_docx.jpg]]
+![vytvoření dokumentu](./google_docx.jpg)
 
 ## Seznámení se rozhraním
 
@@ -22,10 +22,10 @@ Poskytuje pokročilé možnosti práce s dokumentem.
 
 ### Panel nástrojů
 Obsahuje nejčastěji používané nástroje pro práci s dokumentem. 
-![[panel_nastroju.jpg]]
+![panel nástrojů](./panel_nastroju.jpg)
 
 V předposlední sekci se nalézají ikony práce s odrážky.
-![[detail_moznosti_cisl_sez.jpg]]
+![číslované seznamy](./detail_moznosti_cisl_sez.jpg)
 
 Rozbalovací seznam s variantami stylů odrážek.
 

@@ -1,4 +1,4 @@
-# Jak psát odrážkové seznamy
+# Jak psát číslované odrážkové seznamy
 
 V online aplikaci [Google dokumenty](https://docs.google.com/document)
 
@@ -22,18 +22,18 @@ Poskytuje pokročilé možnosti práce s dokumentem.
 Obsahuje nejčastěji používané nástroje pro práci s dokumentem. 
 ![panel nástrojů](./panel_nastroju.jpg)
 
-V předposlední sekci se nalézají ikony práce s odrážky.
+V předposlední sekci se nalézají ikony práce s odrážkami. Zde vás zajímá ikona číslovaného seznamu. Kliknutím na šipku dolů se zobrazí rozbalovací seznam stylů odrážek. Zde vyberte třetí možnost (plně číslovanné odrážky). Provedením výběru se vloží první odrážka nového seznamu, a textový editor nás vrátí na původní pozici kurzoru v dokumentu. 
+
 ![číslované seznamy](./detail_moznosti_cisl_sez.jpg)
 
-Rozbalovací seznam s variantami stylů odrážek.
+
 
 ## Číslované odrážky
 
-1. Výběr odrážkového seznamu dle vaší preference stylu
-Najeďte myší na ikonu číslovaného seznamu a klikněte levým tlačítkem myši na malou šipku dolů a v rozbalovacím seznamu si vyberte požadovaný styl. Po zvolení stylu se vám vloží první odrážky nového seznamu.
+Teď si vyzkoušejte tvorbu seznamu podle následující ukázky.
+![návod jak psát](./jak_psat_navod.jpg)
 
-
-Vyzkoušejte si a za chvíli byte psát odrážkové seznamy jako mistr. 
+Nebojte se experimentovat, pokud se něco nezadaří vraťte se o krok zpět, uvidíte, že za chvíli budete psát odrážkové seznamy jako mistr. 
 
 
 

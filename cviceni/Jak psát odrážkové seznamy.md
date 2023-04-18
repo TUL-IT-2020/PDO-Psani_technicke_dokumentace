@@ -11,7 +11,7 @@ V online aplikaci [Google dokumenty](https://docs.google.com/document)
 2. Do vyhledávacího okna zadejte "Google dokumenty", nebo klikněte na odkaz [zde](https://docs.google.com/document/u/0/).
 3. Na stránce Doogle dokmentů otevřete nový dokument ikonou "+", jako je naznačeno na obrázku níže.
 
-![vytvoření dokumentu](./google_docx.jpg)
+![vytvoření dokumentu](./assets/google_docx.jpg)
 
 ## Seznámení se rozhraním
 
@@ -20,18 +20,18 @@ Poskytuje pokročilé možnosti práce s dokumentem.
 
 ### Panel nástrojů
 Obsahuje nejčastěji používané nástroje pro práci s dokumentem. 
-![panel nástrojů](./panel_nastroju.jpg)
+![panel nástrojů](./assets/panel_nastroju.jpg)
 
 V předposlední sekci se nalézají ikony práce s odrážkami. Zde vás zajímá ikona číslovaného seznamu. Kliknutím na šipku dolů se zobrazí rozbalovací seznam stylů odrážek. Zde vyberte třetí možnost (plně číslovanné odrážky). Provedením výběru se vloží první odrážka nového seznamu, a textový editor nás vrátí na původní pozici kurzoru v dokumentu. 
 
-![číslované seznamy](./detail_moznosti_cisl_sez.jpg)
+![číslované seznamy](./assets/detail_moznosti_cisl_sez.jpg)
 
 
 
 ## Číslované odrážky
 
 Teď si vyzkoušejte tvorbu seznamu podle následující ukázky.
-![návod jak psát](./jak_psat_navod.jpg)
+![návod jak psát](./assets/jak_psat_navod.jpg)
 
 Nebojte se experimentovat, pokud se něco nezadaří vraťte se o krok zpět, uvidíte, že za chvíli budete psát odrážkové seznamy jako mistr. 
 

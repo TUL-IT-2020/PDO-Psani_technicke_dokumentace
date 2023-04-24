@@ -38,3 +38,4 @@
 3.5 Následně proběhne úvodní nastavení systému (trvající několik minut)
 
 3.6 Pokud je po proběhutí nastavení zobrazena plocha operačního systému Windows, považujte tento návod za splněný
+![alt text](https://filestore.community.support.microsoft.com/api/images/d6a7ad57-77e8-48f8-bf5e-5eee0d88a821)

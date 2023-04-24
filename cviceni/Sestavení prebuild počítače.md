@@ -8,6 +8,10 @@
 1.3 Přepínač umístěný vedle konektoru přesuneme do polohy "on" (znak | ) 
 
 ## 2. Zapojení periferií
+
+![alt text](https://github.com/elPytel/PDO-Psani_technicke_dokumentace/blob/main/cviceni/pc.png)
+
+
 ### A) Monitor
 2.1 V obalu přiložený HDMI kabel připojíme jedním koncem do základní desky a druhým do monitoru (je nutné dá si pozor aby nedošlo k zapojení do grafické karty)
 

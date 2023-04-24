@@ -2,8 +2,8 @@
 
 ## Zapojení PC
 - Počítač položíme na pevné, vodorovné místo v otevřeném prostoru
-- Přiložený zdrojový kabel zapojíme do konektoru a druhým koncem do elektrické sítě 230V
-- Přepínač umístěný vedle konektoru přesuneme do polohy "on" (znak | ) 
+- Přiložený označený zdrojový kabel zapojíme do konektoru a druhým koncem do elektrické sítě 230V
+- Síťový přepínač umístěný vedle konektoru přesuneme do polohy "on" (znak | ) 
 
 ## Zapojení periferií
 ### Monitor

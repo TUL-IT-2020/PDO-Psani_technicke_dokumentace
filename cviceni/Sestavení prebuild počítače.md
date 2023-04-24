@@ -3,9 +3,9 @@
 ## 1. Zapojení PC
 1.1 Počítač položíme na pevné, vodorovné místo v otevřeném prostoru
 
-1.2 Přiložený zdrojový kabel zapojíme do konektoru a druhým koncem do elektrické sítě 230V
+1.2 Přiložený a označený napájecí kabel zapojíme do konektoru a druhým koncem do elektrické sítě 230V
 
-1.3 Přepínač umístěný vedle konektoru přesuneme do polohy "on" (znak | ) 
+1.3 Síťový vypínač umístěný vedle konektoru přesuneme do polohy "on" (znak | ) 
 
 ## 2. Zapojení periferií
 
@@ -13,7 +13,7 @@
 
 
 ### A) Monitor
-2.1 V obalu přiložený HDMI kabel připojíme jedním koncem do základní desky a druhým do monitoru (je nutné dá si pozor aby nedošlo k zapojení do grafické karty)
+2.1 V obalu přiložený HDMI kabel připojíme jedním koncem do odpovídajícího portu (viz. obrázek) a druhým do monitoru (je nutné dá si pozor aby nedošlo k zapojení do grafické karty)
 
 2.2 Monitor následně připojte zdrojovým kabelem do elektrické sítě 230V
 ### B) Klávesnice

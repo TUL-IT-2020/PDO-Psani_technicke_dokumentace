@@ -11,10 +11,13 @@ Kdo, kde, co a jak bude dělat?
 - Návod pro oponenta
 Návod pro oponenta jak zprovoznit a otestovat práci. 
 Jak oživit desku, nahrát program, načíst data....
+
 - Programátor v ASEMBLY?
 Musel bych se docela dost naučit programovat v ASEMBLY.
+
 - Programátor překladače? 
 Netuším jak kvalitně někoho navést ke psaní překladače.
+
 - Návrh desky?
 Žije to na FPGA, nemá vlastní pouzdro. 
 

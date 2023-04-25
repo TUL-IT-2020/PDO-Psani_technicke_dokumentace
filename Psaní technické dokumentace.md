@@ -2,10 +2,10 @@
 Dotazy psát na elerning na fórum.
 
 ## Zápočet
-Zápočet za účast a práci v hodině
+Zápočet za účast a práci v hodině.
 
 ## Zkouška
-Prezentace mé dokumetnace.
+Prezentace mé dokumetnace. Proč jsem se rozhodl pro danou stukturu a fromu dokumentace. Není to o tom co jsem dělal k bakalářce, ale jak jsem to komentoval. 
 
 ## Cvičení
 1. Poznej svojí cílovou skupinu

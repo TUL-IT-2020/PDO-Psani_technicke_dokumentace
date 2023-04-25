@@ -9,7 +9,7 @@
 
 ## 2. Zapojení periferií
 
-![alt text](https://github.com/elPytel/PDO-Psani_technicke_dokumentace/blob/main/cviceni/pc.png)
+![rozhraní počítače](./assets/pc.png)
 
 
 ### A) Monitor

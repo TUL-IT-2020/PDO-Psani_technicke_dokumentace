@@ -2,10 +2,12 @@
 Dotazy psát na elerning na fórum.
 
 ## Zápočet
-Zápočet za účast a práci v hodině
+Zápočet za účast a práci v hodině.
 
 ## Zkouška
-Prezentace mé dokumetnace.
+Prezentace mé dokumetnace. Proč jsem se rozhodl pro danou stukturu a fromu dokumentace. Není to o tom co jsem dělal k bakalářce, ale jak jsem to komentoval. 
+
+10 minut vykládat o tom co jsem a jak udělal. 
 
 ## Cvičení
 1. Poznej svojí cílovou skupinu
@@ -19,6 +21,7 @@ Napsat analýzu use case. Vybrat si pro koho dělám analýzu. Pro váš produkt
 4. [[cv04|cvičení]]
 5. [[cv05|cvičení]]
 6. [[cv06|cvičení]]
+7. [[cv07|cvičení]]
 
 ## Semestrální projekt
 Dokumentace k bakalářské práci.

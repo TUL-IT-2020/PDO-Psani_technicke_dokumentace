@@ -11,10 +11,13 @@ Kdo, kde, co a jak bude dělat?
 - Návod pro oponenta
 Návod pro oponenta jak zprovoznit a otestovat práci. 
 Jak oživit desku, nahrát program, načíst data....
+
 - Programátor v ASEMBLY?
 Musel bych se docela dost naučit programovat v ASEMBLY.
+
 - Programátor překladače? 
 Netuším jak kvalitně někoho navést ke psaní překladače.
+
 - Návrh desky?
 Žije to na FPGA, nemá vlastní pouzdro. 
 
@@ -31,7 +34,7 @@ Předpoklady na čtenáře:
 | --- | --- |
 | kompilace | překlad |
 | kompilátor | překladač |
-| test banch  | |
+| test banch | testová sestava |
 
 ### Struktura práce
 Kroky potřebné k otestování praktické části:
@@ -118,7 +121,7 @@ Spouští simulaci souborů *test banch*, ten je zapotřebí vybrat jako *Top de
 ![Flow_Navigator](./assets/Flow_Navigator.PNG)
 
 ### Tcl Console
-Okno konzole "tickle" najdete v dolní části IDE. Základní vlastnost IDE je překlad operací GUI na příkazy konzole tickle, pokročilejší uživatel se může částečně oprostit od grafického ovládání ve prospěch přesných příkazů konzole.
+Okno konzole "tickle" najdete v dolní části IDE. Základní vlastnost IDE je překlad operací GUI na příkazy konzole tcl skriptu, pokročilejší uživatel se může částečně oprostit od grafického ovládání ve prospěch přesných příkazů konzole.
 ![tickle](./assets/Tcl_Console.PNG)
 
 ## Spuštění simulace
@@ -150,6 +153,7 @@ Tento test slouží pro ověření zda fungují jednotlivé funkce na ALU. Při 
 - 
 
 ### 2. Testovací programy v simulaci
+TODO: 
 
 ### 3. Spuštění demonstračního programu na desce
 TODO: jak nahrát syntézu na desku?
@@ -192,11 +196,11 @@ Test banch *tb_run_program.tb* spouští program uložený do souboru: *program.
 Nyní již můžete spustit simulaci s novým programem. 
 
 ## Otestování vlastního programu
-Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tomu lze využít některého ze simulátorů RISC-V.
-[riscfive: seznam simulátorů](https://www.riscfive.com/risc-v-simulators/)
-[Online: venus.kvakil](https://venus.kvakil.me)
-[Online: ascslab](https://ascslab.org/research/briscv/simulator/simulator.html)
-[VS Code rozšíření: venus](https://marketplace.visualstudio.com/items?itemName=hm.riscv-venus)
+Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tomu lze využít některého ze simulátorů RISC-V:
+- [riscfive: seznam simulátorů](https://www.riscfive.com/risc-v-simulators/)
+- [Online: venus.kvakil](https://venus.kvakil.me)
+- [Online: ascslab](https://ascslab.org/research/briscv/simulator/simulator.html)
+- [VS Code rozšíření: venus](https://marketplace.visualstudio.com/items?itemName=hm.riscv-venus)
 
 ## Překlad zdrojových kódů
 
@@ -249,7 +253,7 @@ V nastavení výstupu je vhodné zaškrtnout položky *Demangle identifiers* a o
 Lze použít různých překladačů, například: Clang/LLVM nebo GCC.
 - 64 bitová architektura
 
-Kompilace zdrojových pro 64bitvůou architekturu mohou zajistit již sestavené nástroje od [sifive](https://github.com/sifive/freedom-tools/releases)
+Kompilace zdrojových pro 64bitvůou architekturu mohou zajistit již sestavené nástroje od [sifive](https://github.com/sifive/freedom-tools/releases).
 
 - 32 bitů
 
@@ -283,7 +287,7 @@ riscv32-unknown-elf-objdump -d code.o
 
 ### asm -> hexa
 #### Překlad online
-Překladač z asm na hexa RISC-V překladač: [riscvasm.lucasteske](https://riscvasm.lucasteske.dev/#)
+Překladač z asm na hexa RISC-V překladač: [riscvasm.lucasteske](https://riscvasm.lucasteske.dev/#).
 Na ovládání velmi jednoduchý překladač. Po vložení asm kódu stačí zmáčknout "BUILD" a kód se přeloží do hexa souboru. Poskytuje i disasembly výstup pro zpětný přepis, který obsahuje již i čísla adres v paměti vizualizující jednotlivé skoky na návěští.
 
 
@@ -298,9 +302,9 @@ Pro otevření *.bin* souborů lze použít programů typu hexdump.
 
 
 ## Zdroje:
-https://stackoverflow.com/questions/74231514/how-to-install-riscv32-unknown-elf-gcc-on-debian-based-linuxes
-https://stackoverflow.com/questions/31390127/how-can-i-compile-c-code-to-get-a-bare-metal-skeleton-of-a-minimal-risc-v-assemb
-https://web.eecs.utk.edu/~smarz1/courses/ece356/notes/assembly/
+- https://stackoverflow.com/questions/74231514/how-to-install-riscv32-unknown-elf-gcc-on-debian-based-linuxes
+- https://stackoverflow.com/questions/31390127/how-can-i-compile-c-code-to-get-a-bare-metal-skeleton-of-a-minimal-risc-v-assemb
+- https://web.eecs.utk.edu/~smarz1/courses/ece356/notes/assembly/
 
 
 

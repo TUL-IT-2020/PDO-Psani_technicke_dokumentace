@@ -31,13 +31,14 @@ Předpoklady na čtenáře:
 | --- | --- |
 | kompilace | překlad |
 | kompilátor | překladač |
+| test banch  | |
 
 ### Struktura práce
 Kroky potřebné k otestování praktické části:
 - Jak nainstalovat IDE Vivado.
 	- Jak používat Vivado?
 	- Jak spustit testy?
-- Přklad zdrojového kódu
+- Překlad zdrojového kódu
 	- Seznámení se s zdrojovým kódem (C/Assembler)
 	- Stažení překladače (RISC-V32I)
 	- kompilace
@@ -80,32 +81,113 @@ Obsahuje adresářů:
 - `RISC-V.srcs/sim_1/new` - testovací soubory pro simulace
 
 # Obsahová část
+## Seznam zkratek
+IDE
+HW
+GUI
+
+## Krátký průvodce IDE Vivado
+
+### Ikony ovládání okna
+![ikony okna](./assets/window_buttons.PNG)
+- Help
+- Minimize
+- Maximize - zvětší okno na úrovni editoru
+- Float - odpojí okno z editoru a umožní jeho volné umístění
+- Close - okno na dobro zavře
+
+### Sources
+Okno sources zobrazuje přehled projektu jako strukturu adresářů. Základní dělení je na:
+- Design Sources, zde jsou umístěny všechny ".vhd" soubory s definicí nárhu.
+- Constrains
+- Simulation Sources, zde jsou soubory *test banch* pro simulaci
+- Utility Sources
+![Sources](./assets/Sources.PNG)
+
+### Vlastnosti souborů
+V okně vlastností souborů je možné měnit parametry souboru. Typ slouží k nastavení v jaké revizi jazyka VHDL je soubor napsaný. 
+![[Source_File_Properties.PNG]]
+
+### Flow Navigator
+Umožnuje ovládat nástroje jednotlivých fází vývoje. 
+- Elaborated Design
+Generuje návrh z ".vhd" souborů popisujících HW. Před generováním designu je potřeba nejprve zvolit *Top design*, v okně **Source** klikněte pravým na soubor zdrojového kódu návrhu a zvolte **Set as Top**. 
+- Simulation
+Spouští simulaci souborů *test banch*, ten je zapotřebí vybrat jako *Top design*, v okně **Source** klikněte pravým na soubor zdrojového kódu simulace a zvolte **Set as Top**.
+
+![Flow_Navigator](./assets/Flow_Navigator.PNG)
+
+### Tcl Console
+Okno konzole "tickle" najdete v dolní části IDE. Základní vlastnost IDE je překlad operací GUI na příkazy konzole tickle, pokročilejší uživatel se může částečně oprostit od grafického ovládání ve prospěch přesných příkazů konzole.
+![tickle](./assets/Tcl_Console.PNG)
+
+## Spuštění simulace
+Okno simulace
+Scope
+Přidání sledovaného signálu
+Okno simulace:
+- Zoom in
+- Zoom out
+- Zoom fit
+Scrolovaní myší
+
+Ovládání simulace
+Debugování
+F8
+
+Restartování simulace
+Klikněte pravým tlačítkem myši na odrážku:
+**SIMULATION** ->**Close simulation**
+
 ## Testování
-### Spuštění simulace
+Pro otestování návrhu je připraveno několik fází:
 
-### Nahrání jiného programu
-Pro změnu programu v simulaci *tb_run_program.vhd* je potřeba změnit .coe soubor a rekonfigurovat *instruction_memory*.
+### 1. Testování blokového návrhu
+Pro otestování základních bloků návrhu jsou připravené test banch. Ty se nacházejí v adresáři: `RISC-V.srcs/sim_1/new`. Testy využívají kombinace příkazů `assert` a `report` pro vypisování hlášení v případě že nějaký z testovacích příkladů selhal. Po provedení všech testů se do konzole vypíše hláška *Done* do Tcl Console.
 
-#### 1. hex dump
+- tb_ALU_control
+Tento test slouží pro ověření zda fungují jednotlivé funkce na ALU. Při selhání operace vypíše o který test šlo.
+- 
+
+### 2. Testovací programy v simulaci
+
+### 3. Spuštění demonstračního programu na desce
+TODO: jak nahrát syntézu na desku?
+
+## Nahrání jiného programu
+Pro změnu programu v simulaci *tb_run_program.vhd* je potřeba změnit soubro: *program.mem*  přesunout jej do správného adresáře.
+
+### 1. hex dump
 Vzorové programy jsou připraveny v souborech *.txt* v adresáři: `RISC-V/programs/`. Pro překlad vlastního kódu lze například použít [[6. semestr/PDO-Psani_technicke_dokumentace/README#Překlad online|online překladač]].
 
-#### 2. Aktualizace .coe souboru
-Python script `RISC-V/programs/coe_generator.py` slouží pro přepis hex-dump souboru do formátu .coe:
+### 2. Aktualizace .mem souboru
+Python script `RISC-V/programs/vivado_datafile_generator.py` slouží pro přepis hex-dump souboru do formátu .coe:
 ```Bash
-$ python3 .\coe_generator.py   
-usage: coe_generator.py [-h] -i INPUT
-                        [-o OUTPUT]
-                        [-r RADIX]
-coe_generator.py: error: the following arguments are required: -i/--input
+$ python3 .\vivado_datafile_generator.py -h    
+usage: vivado_datafile_generator.py [-h] -i INPUT
+                                    [-o OUTPUT] [-r RADIX]
+                                    [-f FORMAT]
+
+Aplication for generating COE and MEM file.
+
+options:
+  -h, --help            show this help message and exit   
+  -i INPUT, --input INPUT
+                        input file
+  -o OUTPUT, --output OUTPUT
+                        output file
+  -r RADIX, --radix RADIX
+                        radix
+  -f FORMAT, --format FORMAT
+                        file format
 ```
-Pro vygenerování nové konfigurace *test1.coe* ze souboru *sum.txt* zadejte příkaz:
+Pro vygenerování nového souboru *.mem* s obsahem paměti ze souboru *sum.txt* zadejte příkaz:
 ```Bash
-python3 coe_generator.py -i sum.txt -o test1.coe
-Generating COE file from: sum_func.txt to: test1.coe
+python3 vivado_datafile_generator.py -i sum.txt -o program.mem
 ```
 
-#### 3. Rekonfigurace paměti IP jádra
-TODO:
+### 3. Nahraní nového programu
+Test banch *tb_run_program.tb* spouští program uložený do souboru: *program.mem*. Pro spuštěné nového programu je potřeba výše vygenerovaný soubor přesunout do adresáře *./RISC-V.srcs/sources_1/new/* a restartovat simulaci.
 
 Nyní již můžete spustit simulaci s novým programem. 
 

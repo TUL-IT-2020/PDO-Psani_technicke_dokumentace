@@ -64,3 +64,9 @@ TL;DR - Too long; didn't read.
 
 Signle source publishing
 
+XML - značkovací jazyk, je vhodné používat značkovací nástroje založené na XML.
+
+### Fonty
+Times New Roman - určen pro tisk na papír.
+Helvetika - pro poznámky velikostí 8.5 bodů a menší.
+

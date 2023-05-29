@@ -1,53 +1,4 @@
 # Technická dokumentace
-## Co dokumentuji?
-Mou bakalářskou práci, která je dostupná na školním Git labu. Návrh procesoru RISC-V32I.
-
-## Pro koho to dokumentuji?
-Analýza cílové skupiny.
-Pro koho to dělám?
-Kdo, kde, co a jak bude dělat?
-
-### Jaké jsou use case:
-- Návod pro oponenta
-Návod pro oponenta jak zprovoznit a otestovat práci. 
-Jak oživit desku, nahrát program, načíst data....
-
-- Programátor v ASEMBLY?
-Musel bych se docela dost naučit programovat v ASEMBLY.
-
-- Programátor překladače? 
-Netuším jak kvalitně někoho navést ke psaní překladače.
-
-- Návrh desky?
-Žije to na FPGA, nemá vlastní pouzdro. 
-
-## Návod pro oponenta
-### Specifikace cílové skupiny
-Předpoklady na čtenáře:
-- Uživatel je velmi technicky zdatný
-- Má optimální pracovní podmínky
-- Dokumentaci si čte na počítači
-- Ovládá jazyk VHDL
-
-### Slovníček
-| Anglicismus | Český ekvivalent |
-| --- | --- |
-| kompilace | překlad |
-| kompilátor | překladač |
-| test banch | testová sestava |
-
-### Struktura práce
-Kroky potřebné k otestování praktické části:
-- Jak nainstalovat IDE Vivado.
-	- Jak používat Vivado?
-	- Jak spustit testy?
-- Překlad zdrojového kódu
-	- Seznámení se s zdrojovým kódem (C/Assembler)
-	- Stažení překladače (RISC-V32I)
-	- kompilace
-- Nahrání na desku
-	- Komunikace s vývojovou deskou
-	- Spuštění a ovládání demo programu
 
 ### Struktura repositáře
 ```Bash
@@ -83,7 +34,14 @@ Obsahuje adresářů:
 - `RISC-V.srcs/sources_1/new` - *.VHD* zdrojové soubory 
 - `RISC-V.srcs/sim_1/new` - testovací soubory pro simulace
 
-# Obsahová část
+### Slovníček
+| Anglicismus | Český ekvivalent |
+| --- | --- |
+| kompilace | překlad |
+| kompilátor | překladač |
+| test banch | testová sestava |
+
+
 ## Seznam zkratek
 IDE
 HW
@@ -105,11 +63,13 @@ Okno sources zobrazuje přehled projektu jako strukturu adresářů. Základní 
 - Constrains
 - Simulation Sources, zde jsou soubory *test banch* pro simulaci
 - Utility Sources
+
 ![Sources](./assets/Sources.PNG)
 
 ### Vlastnosti souborů
-V okně vlastností souborů je možné měnit parametry souboru. Typ slouží k nastavení v jaké revizi jazyka VHDL je soubor napsaný. 
-![[Source_File_Properties.PNG]]
+V okně vlastností souborů je možné měnit parametry souboru. Typ slouží k nastavení v jaké revizi jazyka VHDL je soubor napsaný.
+
+![Source_File_Properties](./assets/Source_File_Properties.PNG)
 
 ### Flow Navigator
 Umožnuje ovládat nástroje jednotlivých fází vývoje. 
@@ -122,6 +82,7 @@ Spouští simulaci souborů *test banch*, ten je zapotřebí vybrat jako *Top de
 
 ### Tcl Console
 Okno konzole "tickle" najdete v dolní části IDE. Základní vlastnost IDE je překlad operací GUI na příkazy konzole tcl skriptu, pokročilejší uživatel se může částečně oprostit od grafického ovládání ve prospěch přesných příkazů konzole.
+
 ![tickle](./assets/Tcl_Console.PNG)
 
 ## Spuštění simulace
@@ -156,7 +117,65 @@ Tento test slouží pro ověření zda fungují jednotlivé funkce na ALU. Při 
 TODO: 
 
 ### 3. Spuštění demonstračního programu na desce
-TODO: jak nahrát syntézu na desku?
+
+#### 0. Nahrání programu na SD kartu
+1. Zformátujte SD kartu na formát *fat32*.
+	- Můžete použít nástroj: [SD Card Formatter](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/).
+2. Připravte si program.
+	- Lze použít buď některý z programů v adresáři: *progams*.
+	- Nebo můžete napsat vlastní program (dále v sekci Otestování vlastního programu před spuštěním).
+3. Přeložte program.
+	1. K překladu lze využít například online překladač z  [[6. semestr/PDO-Psani_technicke_dokumentace/README#Překlad zdrojových kódů|Překlad zdrojových kódů]].
+	2. Hexdump uložte do souboru s příponou *.txt*.
+1. Vytvořte program ve formátu *.raw*.
+	- Použijte program *vivado_datafile_generator.py* pro vygenerování *.raw* souboru.
+1. Nahrajte *.raw* soubor na předem připravenou SD kartu.
+
+#### 1. Xilinx Vivado:
+1. Otevřít: Wraper projekt
+2. Otevřít blokový design
+Show ip status
+upgrade selected
+
+3. Vygenerujte bitstream
+PROGRAM AND DEBUG -> Generate Bitsream
+Design runs (průběh)
+
+4. Exportovat bitstream:
+File -> export -> hardware
+Include bitstream
+
+#### 2. Xilinx Vitis:
+Vyberte cestu k adresáři: **RISCvonZED**
+Zelený je projekt
+Zbuildovat: strl+b (nebo kladívkem)
+
+#### 3. Připojení desky
+1. Ve správci zařízení zjistěte jaké zařízení sériové linky vede vývojovou desku. V mém případě šlo o port `COM4`.
+2. Spusťte aplikaci pro komunikaci po seriové lince, například `Putty`.
+	 - Nastavte port: `COM4`
+	 - Rychlost komunikace: `115200`
+	 - Případně nastavte logování komunikace.
+3. 
+
+**debug** -> **debug**
+F5 - step in
+F6 - step over
+F8 - run until
+
+disconect
+
+tlačítka:
+prog - naprogramuj FPG z SD 
+rst - reset ARMU
+
+Když zmáčknu oboje, tak se to úspěšně restartuje
+
+F3 - místo implementace kódu
+
+cltr + alt + r - refaktor
+ctrl + shift + g - všechny výskyty
+ctrl + shift + f - formatovat
 
 ## Nahrání jiného programu
 Pro změnu programu v simulaci *tb_run_program.vhd* je potřeba změnit soubro: *program.mem*  přesunout jej do správného adresáře.
@@ -190,12 +209,12 @@ Pro vygenerování nového souboru *.mem* s obsahem paměti ze souboru *sum.txt*
 python3 vivado_datafile_generator.py -i sum.txt -o program.mem
 ```
 
-### 3. Nahraní nového programu
+### 3. Nahraní nového programu do simulace
 Test banch *tb_run_program.tb* spouští program uložený do souboru: *program.mem*. Pro spuštěné nového programu je potřeba výše vygenerovaný soubor přesunout do adresáře *./RISC-V.srcs/sources_1/new/* a restartovat simulaci.
 
 Nyní již můžete spustit simulaci s novým programem. 
 
-## Otestování vlastního programu
+## Otestování vlastního programu před spuštěním 
 Před nahráním vlastního programu je vhodné otestovat jeho funkčnost, k tomu lze využít některého ze simulátorů RISC-V:
 - [riscfive: seznam simulátorů](https://www.riscfive.com/risc-v-simulators/)
 - [Online: venus.kvakil](https://venus.kvakil.me)
@@ -257,7 +276,8 @@ Kompilace zdrojových pro 64bitvůou architekturu mohou zajistit již sestavené
 
 - 32 bitů
 
-Naše architektura je však 32bitová a proto si musíme sestavit vlastní překladač. Překlad gcc pro křížový překlad [[6. semestr/PDO-Psani_technicke_dokumentace/README#Sestavení překladače|zde]].
+Naše architektura je však 32bitová a proto si musíme sestavit vlastní překladač. Překlad gcc pro křížový překlad [[6. semestr/PDO-Psani_technicke_dokumentace/README#Sestavení překladače|zde]]. Tutoriál [zde](https://www.youtube.com/watch?v=sPvMXGFTC2U).
+https://five-embeddev.com/toolchain/2019/06/26/gcc-targets/
 
 Kompilace zdrojového kódu programu:
 - Překlad v jednom kroku:

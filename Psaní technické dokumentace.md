@@ -5,9 +5,11 @@ Dotazy psát na elerning na fórum.
 Zápočet za účast a práci v hodině.
 
 ## Zkouška
-Prezentace mé dokumetnace. Proč jsem se rozhodl pro danou stukturu a fromu dokumentace. Není to o tom co jsem dělal k bakalářce, ale jak jsem to komentoval. 
+Prezentace mé dokumentace. Proč jsem se rozhodl pro danou strukturu a formu dokumentace. Není to o tom co jsem dělal k bakalářce, ale jak jsem to komentoval. 
 
 10 minut vykládat o tom co jsem a jak udělal. 
+
+- [ ] Finální verze práce den před zkouškou.
 
 ## Cvičení
 1. Poznej svojí cílovou skupinu
@@ -26,6 +28,62 @@ Napsat analýzu use case. Vybrat si pro koho dělám analýzu. Pro váš produkt
 ## Semestrální projekt
 Dokumentace k bakalářské práci.
 [Dokumentace RISC-V](./README.md)
+
+### Co dokumentuji?
+Mou bakalářskou práci, která je dostupná na školním Git labu. Návrh procesoru RISC-V32I.
+
+### Pro koho to dokumentuji?
+Analýza cílové skupiny.
+Pro koho to dělám?
+Kdo, kde, co a jak bude dělat?
+
+### Jaké jsou use case:
+- Návod pro oponenta
+Návod pro oponenta jak zprovoznit a otestovat práci. 
+Jak oživit desku, nahrát program, načíst data....
+
+- Programátor v ASEMBLY?
+Musel bych se docela dost naučit programovat v ASEMBLY.
+
+- Programátor překladače? 
+Netuším jak kvalitně někoho navést ke psaní překladače.
+
+- Návrh desky?
+Žije to na FPGA, nemá vlastní pouzdro. 
+
+### Návod pro oponenta
+#### Specifikace cílové skupiny
+Předpoklady na čtenáře:
+- Uživatel je velmi technicky zdatný
+- Má optimální pracovní podmínky
+- Dokumentaci si čte na počítači
+- Ovládá jazyk VHDL
+
+#### Rozlišení textu:
+- **BOLT** 
+	- položky menu
+- *Kurziva*
+	- technické termíny
+- `Kód`
+	- Kusy kódu 
+- "uvozovky"
+	- čtení zkrate?
+
+cesty k souborům
+formát souborů
+
+#### Struktura práce
+Kroky potřebné k otestování praktické části:
+- Jak nainstalovat IDE Vivado.
+	- Jak používat Vivado?
+	- Jak spustit testy?
+- Překlad zdrojového kódu
+	- Seznámení se s zdrojovým kódem (C/Assembler)
+	- Stažení překladače (RISC-V32I)
+	- kompilace
+- Nahrání na desku
+	- Komunikace s vývojovou deskou
+	- Spuštění a ovládání demo programu
 
 ## Výpisky
 

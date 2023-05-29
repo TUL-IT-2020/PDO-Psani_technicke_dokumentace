@@ -1,7 +1,7 @@
 # Technická dokumentace
 !!!
 
-Dokumentace je psána formou GitHub wiki [zde](https://github.com/elPytel/PDO-Psani_technicke_dokumentace/wiki/README).
+Dokumentace je psána formou GitHub wiki [zde](https://github.com/elPytel/PDO-Psani_technicke_dokumentace/wiki/wiki_main).
 
 !!!
 
